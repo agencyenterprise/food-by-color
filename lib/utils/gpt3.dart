@@ -1,12 +1,8 @@
 import 'package:dio/dio.dart';
 
-var dio = Dio();
-
 Future<String> getAnswer(properties) async {
+  print(properties);
   try {
-    dio.options.headers["authorization"] =
-        "Bearer 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";
-
     final colors = (properties['responses'][0]['imagePropertiesAnnotation']
             ['dominantColors']['colors'] as List)
         .toList();
@@ -29,6 +25,7 @@ Future<String> getAnswer(properties) async {
     print('prompt');
     print(prompt);
 
+    var dio = Dio();
     var response = await dio.post(
       'https://api.openai.com/v1/completions',
       data: {
@@ -37,11 +34,19 @@ Future<String> getAnswer(properties) async {
         "temperature": 0,
         "max_tokens": 256,
       },
+      options: Options(
+        headers: {
+          "Content-Type": "application/json",
+          "authorization":
+              "Bearer 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",
+        },
+      ),
     );
     var respText = response.data['choices'][0]['text'].toString();
 
     return respText;
   } catch (err) {
+    print('err gpt3');
     print(err);
     return 'Unable to get an answer';
   }

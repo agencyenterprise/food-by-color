@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:food_by_color/controllers/application_controller/application_controller_state.dart';
 import 'package:go_router/go_router.dart';
@@ -21,6 +23,30 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _bloc = context.read<ApplicationControllerBloc>();
+  }
+
+  Widget _loadedImageWidgets(state) {
+    return Column(
+      children: [
+        const Text(
+          'My plate',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Color.fromARGB(255, 77, 77, 77),
+            fontWeight: FontWeight.w900,
+            fontSize: 28,
+          ),
+        ),
+        Text(state.answer),
+        const SizedBox(height: 15),
+        SizedBox(
+          width: 300,
+          child: Image.memory(
+            base64Decode(state.imagePath),
+          ),
+        )
+      ],
+    );
   }
 
   @override
@@ -52,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           if (state is ApplicationControllerStateLoaded)
-                            Image.network(state.imagePath)
+                            _loadedImageWidgets(state)
                           else
                             Container(),
                           ElevatedButton(

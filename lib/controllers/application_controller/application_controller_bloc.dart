@@ -16,7 +16,10 @@ class ApplicationControllerBloc
     Emitter<ApplicationControllerState> emit,
   ) {
     emit(
-      ApplicationControllerStateLoaded(imagePath: event.imagePath),
+      ApplicationControllerStateLoaded(
+        imagePath: event.imagePath,
+        answer: event.answer,
+      ),
     );
   }
 }

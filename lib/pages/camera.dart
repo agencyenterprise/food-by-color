@@ -7,6 +7,8 @@ import 'package:camera/camera.dart';
 
 import '../controllers/application_controller/application_controller_bloc.dart';
 import '../controllers/application_controller/application_controller_events.dart';
+import '../utils/gpt3.dart';
+import '../utils/vision.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({Key? key, required this.title}) : super(key: key);
@@ -117,9 +119,13 @@ class _CameraPageState extends State<CameraPage> {
                   final bytes = await image.readAsBytes();
 
                   final base64image = base64Encode(bytes);
-                  print(base64image);
+                  final properties = await getImageProperties();
+                  final answer = await getAnswer(properties);
                   _bloc.add(
-                    ApplicationControllerEventsLoad(imagePath: base64image),
+                    ApplicationControllerEventsLoad(
+                      imagePath: base64image,
+                      answer: answer,
+                    ),
                   );
 
                   context.go('/');

@@ -19,6 +19,7 @@ class CameraPage extends StatefulWidget {
 }
 
 class _CameraPageState extends State<CameraPage> {
+  bool _loading = false;
   late ApplicationControllerBloc _bloc;
   late List<CameraDescription> _cameras;
   late CameraController controller;
@@ -119,7 +120,10 @@ class _CameraPageState extends State<CameraPage> {
                   final bytes = await image.readAsBytes();
 
                   final base64image = base64Encode(bytes);
-                  final properties = await getImageProperties();
+                  setState(() {
+                    _loading = true;
+                  });
+                  final properties = await getImageProperties(base64image);
                   final answer = await getAnswer(properties);
                   _bloc.add(
                     ApplicationControllerEventsLoad(
@@ -127,7 +131,9 @@ class _CameraPageState extends State<CameraPage> {
                       answer: answer,
                     ),
                   );
-
+                  setState(() {
+                    _loading = false;
+                  });
                   context.go('/');
                 }),
           ],
@@ -143,8 +149,15 @@ class _CameraPageState extends State<CameraPage> {
       ),
       body: Builder(
         builder: (context) {
-          if (!_cameraInitialized) {
-            return const Text('Loading...');
+          if (!_cameraInitialized || _loading) {
+            return const Center(
+              child: SizedBox(
+                width: 400,
+                child: CircularProgressIndicator(
+                  color: Colors.greenAccent,
+                ),
+              ),
+            );
           }
           return _mainWidget();
         },

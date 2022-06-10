@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 // prato sem verdura
 //http://www.tendergrassfedmeat.com/wp-content/uploads/2011/11/my-plate-20111107_0001.jpg
 
-dynamic getImageProperties() async {
+dynamic getImageProperties(base64image) async {
   try {
     Dio dio = new Dio();
     var response = await dio.post(
@@ -17,12 +17,7 @@ dynamic getImageProperties() async {
                 "type": "IMAGE_PROPERTIES",
               }
             ],
-            "image": {
-              "source": {
-                "imageUri":
-                    "gs://cloud-samples-data/vision/image_properties/bali.jpeg"
-              }
-            }
+            "image": {"content": base64image}
           }
         ]
       },

@@ -11,7 +11,7 @@ Future<String> getAnswer(properties) async {
     var prompt = 'If my food plate has a type of food with ';
 
     for (int i = 0; i < colors.length; i++) {
-      if (i == 10) {
+      if (i == colors.length) {
         prompt =
             '$prompt RGB values of (${colors[i]['color']['red']}, ${colors[i]['color']['blue']}, ${colors[i]['color']['green']})';
       } else {
@@ -38,7 +38,7 @@ Future<String> getAnswer(properties) async {
         headers: {
           "Content-Type": "application/json",
           "authorization":
-              "Bearer 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",
+              "Bearer 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",
         },
       ),
     );

@@ -41,7 +41,7 @@ Future<String> getAnswer(properties) async {
         headers: {
           "Content-Type": "application/json",
           "authorization":
-              "Bearer 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",
+              "Bearer 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",
         },
       ),
     );

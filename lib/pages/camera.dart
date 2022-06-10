@@ -150,12 +150,31 @@ class _CameraPageState extends State<CameraPage> {
       body: Builder(
         builder: (context) {
           if (!_cameraInitialized || _loading) {
-            return const Center(
-              child: SizedBox(
-                width: 400,
-                child: CircularProgressIndicator(
-                  color: Colors.greenAccent,
-                ),
+            return Center(
+              child: Column(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.all(40.0),
+                    child: Text(
+                      "Calculating...",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 77, 77, 77),
+                        fontWeight: FontWeight.w900,
+                        fontSize: 28,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  SizedBox(
+                    width: 100,
+                    child: CircularProgressIndicator(
+                      color: Colors.greenAccent,
+                    ),
+                  ),
+                ],
               ),
             );
           }

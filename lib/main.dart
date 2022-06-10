@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_by_color/pages/answer.dart';
 import 'package:food_by_color/pages/camera.dart';
 import 'package:food_by_color/pages/home.dart';
 import 'package:go_router/go_router.dart';
@@ -39,13 +38,6 @@ class App extends StatelessWidget {
         path: '/camera',
         builder: (BuildContext context, GoRouterState state) =>
             const CameraPage(title: title),
-      ),
-      GoRoute(
-        path: '/answer',
-        builder: (BuildContext context, GoRouterState state) =>
-            const AnswerPage(
-          title: title,
-        ),
       ),
     ],
   );

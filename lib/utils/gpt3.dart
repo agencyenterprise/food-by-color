@@ -8,19 +8,22 @@ Future<String> getAnswer(properties) async {
         .toList();
     print('colors');
     print(colors);
-    var prompt = 'If my food plate has a type of food with ';
+    var prompt = 'If my food plate has foods with the color';
 
     for (int i = 0; i < colors.length; i++) {
-      if (i == colors.length) {
+      if (i == colors.length - 1) {
         prompt =
-            '$prompt RGB values of (${colors[i]['color']['red']}, ${colors[i]['color']['blue']}, ${colors[i]['color']['green']})';
+            '$prompt RGB(${colors[i]['color']['red']}, ${colors[i]['color']['green']}, ${colors[i]['color']['blue']})';
       } else {
         prompt =
-            '$prompt RGB(${colors[i]['color']['red']}, ${colors[i]['color']['blue']}, ${colors[i]['color']['green']}), and a type of food with ';
+            '$prompt RGB(${colors[i]['color']['red']}, ${colors[i]['color']['green']}, ${colors[i]['color']['blue']}), and ';
       }
     }
 
-    prompt = '${prompt}. Then list food names that my plate is lacking';
+    prompt =
+        '${prompt}. What are the foods that my food plate is lacking? Then give some examples of the foods that my plate is lacking.';
+    // prompt = '${prompt}. Then tell me what colors i lack and then list the categories of foods that have the colors i am lacking and then give me examples of foods on those categories.';
+    prompt = prompt.replaceAll(', and a type of food with .', '.');
 
     print('prompt');
     print(prompt);
@@ -38,7 +41,7 @@ Future<String> getAnswer(properties) async {
         headers: {
           "Content-Type": "application/json",
           "authorization":
-              "Bearer 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",
+              "Bearer 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",
         },
       ),
     );

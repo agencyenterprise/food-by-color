@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
     return Column(
       children: [
         const Text(
-          'My plate',
+          'Answer',
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Color.fromARGB(255, 77, 77, 77),
@@ -37,8 +37,17 @@ class _HomePageState extends State<HomePage> {
             fontSize: 28,
           ),
         ),
-        Text(state.answer),
-        const SizedBox(height: 15),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            state.answer,
+            style: const TextStyle(
+              color: Color.fromARGB(255, 77, 77, 77),
+              fontSize: 18,
+            ),
+          ),
+        ),
+        const SizedBox(height: 45),
         SizedBox(
           width: 300,
           child: Image.memory(
@@ -84,10 +93,6 @@ class _HomePageState extends State<HomePage> {
                           ElevatedButton(
                             onPressed: () async {
                               context.go('/camera');
-                              // final properties = await getImageProperties();
-                              // final answer = await getAnswer(properties);
-                              // print('gpt3 answer');
-                              // print(answer);
                             },
                             child:
                                 const Text('Take a picture of my food plate'),

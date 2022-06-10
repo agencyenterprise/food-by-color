@@ -24,7 +24,7 @@ Future<String> getAnswer(properties) async {
       }
     }
 
-    prompt = '${prompt}. Then list food names that my plate is lacking?';
+    prompt = '${prompt}. Then list food names that my plate is lacking';
 
     print('prompt');
     print(prompt);

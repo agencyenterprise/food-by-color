@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 
+final token =
+    'ya29.c.b0AXv0zTPdjSJa4TzxcrIHM37xuNKY_-VqUG33PNP_AwVVNhGSNbWYvCgWdf-G4YeFiAwiVlZnkAWh4qCa7soyoqsVlJwMUvz1g398jjkfl7NtpjMQR8cpl9vBVJ8nqn6x_BvXkMsA_8BMygKC08ooHptjjM0V8tfYZNugNXdpgugFQEB1sKtxwxzoPoSGSeJQiQOHo0xDd115utdy8GsIh9JRFMiKfmc';
+
 Dio dio = new Dio();
 
 // mostly green plate
@@ -9,8 +12,8 @@ Dio dio = new Dio();
 // https://ak.picdn.net/shutterstock/videos/3932522/thumb/1.jpg
 
 dynamic getImageProperties() async {
-  dio.options.headers['authorization'] =
-      'Bearer ya29.c.b0AXv0zTObBz7GcgFkFEoRFEbshbrfvu0jHP-e82Zpq9nMwck6f12G1MaZXACSBDlL2QlHXxitQku84f57kwYt_Fog1OkNscHxmWjQpH2dB0kIaWk3k941aJlZTXTMrNH_E5DtHcUjI8NrOJspyWLQKAkqJpCwH_d2R7_GISaY-0D-DVQ7H0ujQ3_0WGFGsI8m52GoYP-DOZC7jg0js0NRQEV_vcsi1ZE';
+  dio.options.headers['authorization'] = token;
+
   try {
     var response = await dio
         .post('https://vision.googleapis.com/v1/images:annotate', data: {

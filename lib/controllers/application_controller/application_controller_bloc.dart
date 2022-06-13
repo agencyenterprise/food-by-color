@@ -17,6 +17,7 @@ class ApplicationControllerBloc
   ) {
     emit(
       ApplicationControllerStateLoaded(
+        properties: event.properties,
         imagePath: event.imagePath,
         answer: event.answer,
       ),

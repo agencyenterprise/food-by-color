@@ -24,7 +24,7 @@ dynamic getImageProperties(base64image) async {
       options: Options(
         headers: {
           "authorization":
-              "Bearer ya29.c.b0AXv0zTP_UdyHX-icqMpDmaBUvfAAp0x_4XE5O_IH6xq6LHr5tOM8xb_koSKaaG2x2LCNfKOpKttHXZ_pjR9UdyFhsr-14nKfC6pGmz232rhfTGHnSHZLZN6gro2deRT5mTL8KRldvlKRjTUNvzjdKyEM5sXUoT-9n9yvgqyeqodr1c-EZzGEoAg5GP0Gxf1Q2KUodya6BRNjZNcDMSage0kO3DS17m0",
+              "Bearer ya29.c.b0AXv0zTN_Ln_X21BC6Ju9OYPY4-OTLE6qJ156qbmHV4k7emx6X2Z9FdgffWaYS4hNDFJyd_sKrWoYPsR4nJYzTCT-tlbLXaTk2biXJ8wW28Xi1v_HJY-V3O4BrKA-Dibg5lhRV0Gwg0qtd_2807YcCLpMqhPvm9dgxwQg4q7votlN8gQMJegDPUvPOUCJR1a2GTx5oqhahObn-3JUgAlPUmQ7U2-LLhI",
         },
         receiveTimeout: 10000,
         sendTimeout: 10000,

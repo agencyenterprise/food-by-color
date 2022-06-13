@@ -129,6 +129,7 @@ class _CameraPageState extends State<CameraPage> {
                     ApplicationControllerEventsLoad(
                       imagePath: base64image,
                       answer: answer,
+                      properties: properties,
                     ),
                   );
                   setState(() {
@@ -145,7 +146,7 @@ class _CameraPageState extends State<CameraPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Center(child: Text(widget.title)),
       ),
       body: Builder(
         builder: (context) {

@@ -6,7 +6,7 @@ The color of food can tell a lot about it, from what type of nutrients it might 
 ## Up and running
 
 ```
-$ git clone git@github.com:agencyenterprise/food-by-color.git
+$ git clone git@github.com:agencyenterprise/foodcolorscan.git
 ```
 Go to the repo root folder
 ```
